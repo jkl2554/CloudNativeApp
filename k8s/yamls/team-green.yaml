@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: team-green-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: team-green
+  template:
+    metadata:
+      labels:
+        app: team-green
+    spec:
+      containers:
+      - name: team-green
+        image: myacr0512.azurecr.io/team-green:v1.0
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "32Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3002

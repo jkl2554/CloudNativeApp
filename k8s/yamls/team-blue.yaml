@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: team-blue-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: team-blue
+  template:
+    metadata:
+      labels:
+        app: team-blue
+    spec:
+      containers:
+      - name: team-blue
+        image: myacr0512.azurecr.io/team-blue:v1.0
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "32Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3001

@@ -1,0 +1,83 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-front-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-front
+  template:
+    metadata:
+      labels:
+        app: nginx-front
+    spec:
+      containers:
+      - name: nginx-front
+        image: myacr0512.azurecr.io/nginx-front:v1.0
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "32Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3000
+        volumeMounts:
+        - name: nginx-conf
+          mountPath: /etc/nginx/conf.d
+      volumes:
+        - name: nginx-conf
+          configMap:
+            name: nginx-conf
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-conf
+data:
+  # nginx.conf 내용, 변수설정 필요
+  nginx.conf: |
+    upstream team-blue {
+      server team-blue:3001;
+    }
+
+    upstream team-green {
+      server team-green:3002;
+    }
+
+    upstream team-red {
+      server team-red:3003;
+    }
+
+    log_format compact '$request $status - $bytes_sent';
+    access_log off;
+
+    server {
+      listen 3000;
+
+      access_log /var/log/nginx/access.log compact;
+      ssi on;
+
+      location /blue {
+        proxy_pass  http://team-blue;
+      }
+
+      location /green {
+        proxy_pass  http://team-green;
+      }
+
+      location /red {
+        proxy_pass  http://team-red;
+      }
+
+      location /common {
+        root /usr/share/nginx/html;
+      }
+
+      location / {
+        proxy_pass  http://team-red;
+      }
+    }

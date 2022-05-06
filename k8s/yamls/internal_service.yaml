@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: team-blue
+spec:
+  type: ClusterIP
+  selector:
+    app: team-blue
+  ports:
+  - port: 3001
+    targetPort: 3001
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: team-green
+spec:
+  type: ClusterIP
+  selector:
+    app: team-green
+  ports:
+  - port: 3002
+    targetPort: 3002
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: team-red
+spec:
+  type: ClusterIP
+  selector:
+    app: team-red
+  ports:
+  - port: 3003
+    targetPort: 3003
