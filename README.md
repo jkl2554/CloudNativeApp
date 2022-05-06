@@ -2,6 +2,7 @@
 ## 요구사항
 - [terraform](https://www.terraform.io/downloads) terraform 
 - [azure CLI](https://docs.microsoft.com/ko-kr/cli/azure/install-azure-cli) 2.36.0 버전
+- [kubectl](https://kubernetes.io/ko/docs/tasks/tools/)
 ## 1. Deploy Azure Resources by terraform
 Dir: `./k8s/terraform`
 ```s
@@ -16,6 +17,40 @@ terraform init
 terraform apply
 ```
 ## 2. Deploy Application
+Dir: `./k8s/yamls`
+- Change File:`nginx-front.yaml`
+```s
+...
+ containers:
+      - name: nginx-front
+        image: <Your ACR Name>.azurecr.io/nginx-front:v1.0
+...
+```
+- Change File:`team-blue.yaml`
+```s
+...
+ containers:
+      - name: team-blue
+        image: <Your ACR Name>.azurecr.io/nginx-front:v1.0
+...
+```
+- Change File:`team-green.yaml`
+```s
+...
+ containers:
+      - name: team-green
+        image: <Your ACR Name>.azurecr.io/nginx-front:v1.0
+...
+```
+- Change File:`team-red.yaml`
+```s
+...
+ containers:
+      - name: team-red
+        image: <ACR Name>.azurecr.io/nginx-front:v1.0
+...
+```
+
 Dir: `./k8s`
 - in linux
 ```s

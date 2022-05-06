@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: team-green
-        image: myacr0512.azurecr.io/team-green:v1.0
+        image: <ACR Name>.azurecr.io/team-green:v1.0
         imagePullPolicy: Always
         resources:
           requests:

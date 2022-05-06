@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: nginx-front
-        image: myacr0512.azurecr.io/nginx-front:v1.0
+        image: <ACR Name>.azurecr.io/nginx-front:v1.0
         imagePullPolicy: Always
         resources:
           requests:
