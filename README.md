@@ -9,9 +9,8 @@ Dir: `./k8s/terraform`
 az login
 az account set -s <Subscription ID>
 ## Set Variables
-cat <<EOF > variables.auto.tfvars
-acr_name = "<Unique ACR Name>"
-EOF
+echo 'acr_name = "<Unique ACR Name>"' > variables.auto.tfvars
+
 ## Deploy by Terraform
 terraform init
 terraform apply
