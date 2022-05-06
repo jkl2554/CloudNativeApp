@@ -4,7 +4,7 @@ param(
 )
 $Script_dir=Split-Path $Script:MyInvocation.MyCommand.Path
 Set-Location -Path $Script_dir
-$env:KUBECOFIG="$Script_dir/terraform/kubeconfig"
+$env:KUBECONFIG="$Script_dir/terraform/kubeconfig"
 ## default values
 
 Write-Output "### build images ###"
