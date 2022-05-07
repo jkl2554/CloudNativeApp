@@ -18,7 +18,7 @@ terraform apply
 ```
 ## 2. Deploy Application
 Dir: `./k8s/yamls`
-- Change File:`nginx-front.yaml`
+- Update File:`nginx-front.yaml` line 17
 ```s
 ...
 15 containers:
@@ -26,7 +26,7 @@ Dir: `./k8s/yamls`
 17        image: <Your ACR Name>.azurecr.io/nginx-front:v1.0
 ...
 ```
-- Change File:`team-blue.yaml`
+- Update File:`team-blue.yaml` line 17
 ```s
 ...
 15 containers:
@@ -34,7 +34,7 @@ Dir: `./k8s/yamls`
 17        image: <Your ACR Name>.azurecr.io/nginx-front:v1.0
 ...
 ```
-- Change File:`team-green.yaml`
+- Update File:`team-green.yaml` line 17
 ```s
 ...
 15 containers:
@@ -42,7 +42,7 @@ Dir: `./k8s/yamls`
 17        image: <Your ACR Name>.azurecr.io/nginx-front:v1.0
 ...
 ```
-- Change File:`team-red.yaml`
+- Update File:`team-red.yaml` line 17
 ```s
 ...
 15 containers:
