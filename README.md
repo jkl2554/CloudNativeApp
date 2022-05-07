@@ -21,33 +21,33 @@ Dir: `./k8s/yamls`
 - Change File:`nginx-front.yaml`
 ```s
 ...
- containers:
-      - name: nginx-front
-        image: <Your ACR Name>.azurecr.io/nginx-front:v1.0
+15 containers:
+16      - name: nginx-front
+17        image: <Your ACR Name>.azurecr.io/nginx-front:v1.0
 ...
 ```
 - Change File:`team-blue.yaml`
 ```s
 ...
- containers:
-      - name: team-blue
-        image: <Your ACR Name>.azurecr.io/nginx-front:v1.0
+15 containers:
+16      - name: team-blue
+17        image: <Your ACR Name>.azurecr.io/nginx-front:v1.0
 ...
 ```
 - Change File:`team-green.yaml`
 ```s
 ...
- containers:
-      - name: team-green
-        image: <Your ACR Name>.azurecr.io/nginx-front:v1.0
+15 containers:
+16      - name: team-green
+17        image: <Your ACR Name>.azurecr.io/nginx-front:v1.0
 ...
 ```
 - Change File:`team-red.yaml`
 ```s
 ...
- containers:
-      - name: team-red
-        image: <ACR Name>.azurecr.io/nginx-front:v1.0
+15 containers:
+16      - name: team-red
+17        image: <Your ACR Name>.azurecr.io/nginx-front:v1.0
 ...
 ```
 
