@@ -1,7 +1,7 @@
 # Cloud Native App Demo
 ## 요구사항
-- [terraform](https://www.terraform.io/downloads) terraform 
-- [azure CLI](https://docs.microsoft.com/ko-kr/cli/azure/install-azure-cli) 2.36.0 버전
+- [Terraform](https://www.terraform.io/downloads)
+- [Azure CLI](https://docs.microsoft.com/ko-kr/cli/azure/install-azure-cli) 2.27.0 버전 이상
 - [kubectl](https://kubernetes.io/ko/docs/tasks/tools/)
 ## 1. Deploy Azure Resources by terraform
 Dir: `./k8s/terraform`
