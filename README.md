@@ -19,7 +19,7 @@ terraform apply
 ## 2. Deploy Application
 Dir: `./k8s/yamls`
 - Update File:`nginx-front.yaml` line 17
-```s
+```yaml
 ...
 15 containers:
 16      - name: nginx-front
@@ -27,7 +27,7 @@ Dir: `./k8s/yamls`
 ...
 ```
 - Update File:`team-blue.yaml` line 17
-```s
+```yaml
 ...
 15 containers:
 16      - name: team-blue
@@ -35,7 +35,7 @@ Dir: `./k8s/yamls`
 ...
 ```
 - Update File:`team-green.yaml` line 17
-```s
+```yaml
 ...
 15 containers:
 16      - name: team-green
@@ -43,7 +43,7 @@ Dir: `./k8s/yamls`
 ...
 ```
 - Update File:`team-red.yaml` line 17
-```s
+```yaml
 ...
 15 containers:
 16      - name: team-red
